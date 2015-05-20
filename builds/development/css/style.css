@@ -1,0 +1,124 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+html,body {
+  background: url(https://farm3.staticflickr.com/2364/2243611451_d56b7fb3c2_b.jpg) fixed;
+  background-size: cover;
+  font-family: "open sans";
+  color: white;
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+}
+
+#login_cont {
+  width: 360px;
+  height: 230px;
+  background: rgba(30,30,80,0.6);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  border: 1px solid rgba(50,50,100,0.6);
+  border-radius: 0;
+  box-shadow: 365px 0 5px rgba(20,20,70,0.4) hidden;
+  transition: all 0.7s;
+  overflow: hidden;
+}
+
+#cont {
+  width: 60%;
+  height: auto;
+  overflow: hidden;
+  visibility: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 2s;
+  background: rgba(30,30,30,0);
+  padding: 1em;
+  color: rgba(255,255,255,0);
+  border-radius: 10px;
+}
+
+form {
+  background: rgba(60,60,60,0.7);
+  text-align: right;
+}
+
+#login {
+  text-align: center;
+  text-shadow: 2px 2px 4px rgb(40,40,40);
+}
+
+hr {
+  border: 1px solid rgba(50,50,100,0.6);
+  transition: all 0.7s;
+}
+
+#email {
+  margin-top: 1em;
+  text-shadow: 2px 2px 4px rgb(40,40,40);
+}
+
+#pw {
+  margin-top: 0em;
+  text-shadow: 2px 2px 4px rgb(40,40,40);
+}
+
+input {
+  background: transparent;
+  border: 1px solid rgba(40,40,40,0.6);
+  border-radius: 5px;
+  width: 65%;
+  height: 20px;
+  margin-right: 5%;
+  margin-top: 10px;
+  float: right;
+  color: rgb(200,200,200);
+  padding-left: 0.4em;
+  transition: all 0.3s;
+}
+
+input:focus {
+  border: 1px solid rgb(220,220,220);
+  outline: none;
+}
+
+p {
+  margin: 0;
+  margin-top: 10px;
+  padding-left: 0.7em;
+  float: left;
+}
+
+ul {
+  list-style: none;
+  margin-left: 21%;
+  margin-right: auto;
+  float: left;
+}
+
+li {
+  display: inline-block;
+}
+
+.login_buttons{
+  
+}
+
+button {
+  padding: 8px;
+  background: rgba(50,50,50,0.6);
+  float: left;
+  margin-left: 3px;
+  border: 1px solid rgba(50,50,50,0.6);
+  border-radius: 5px;
+  color: rgb(210,210,210);
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+button:hover {
+  border: 1px solid rgb(220,220,220);
+}
+
+button:focus {
+  outline: none;
+}
