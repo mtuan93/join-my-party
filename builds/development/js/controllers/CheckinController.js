@@ -1,14 +1,42 @@
-myApp.controller('CheckinController', function ($scope, $firebase, FIREBASE_URL) {
+myApp.controller('CheckinController',
+    function($scope, $firebaseAuth, $location, $rootScope, FIREBASE_URL, Authentication) {
 
-	var ref = new Firebase(FIREBASE_URL + '/users/');
-	var firebaseUsers = $firebase(ref);
+        // Required - set to true on submission
+        $scope.isSubmitting = null;
 
-	$scope.register = function () {
-		var userInfo = {
-		name: $scope.user.name,
-		email: $scope.user.email,
-		description: $scope.user.description
-		};
-		firebaseUsers.$push(userInfo);
-	}
-});
+        // Required - set to 'success' or 'error' on success/failure
+        $scope.result = null;
+
+        // Optional
+        $scope.options = {
+            buttonDefaultText: 'Start Checking',
+            buttonSuccessText: 'Verified',
+            animationCompleteTime: '2000',
+            iconPosition: 'left',
+            buttonErrorText: 'Not Verified'
+        };
+
+        $scope.register = function() {
+            Authentication.register($scope.user)
+                .then(function() {
+                    Authentication.login($scope.user)
+                        .then(function() {
+                            $scope.isSubmitting = true;
+                            $scope.result = 'success';
+                        });
+                    if($scope.isSubmitting) {
+                        $location.path('/post'); 
+                    }
+                })
+                .catch(function(error) {
+                    $scope.result = 'error';
+                    $scope.message = error.message;
+                });
+        }; //register
+
+        $scope.logout = function() {
+            Authentication.logout();
+            $rootScope.currentUser = '';
+            $location.path('/login');
+        }
+    });
