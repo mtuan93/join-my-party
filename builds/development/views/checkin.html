@@ -1,0 +1,21 @@
+<div id="login_cont">
+  <h2 id="login">Start Checking</h2>
+  <hr id="hr">
+  <form name="checkinForm" ng-submit="register()">
+    <div id="name">
+      <p>Your Name:</p>
+      <input type="text" name="name" ng-model="user.name" required>
+    </div>
+    <div id="email">
+      <p>Your Email:</p>
+      <input type="email" name="email" id="pass" ng-model="user.email" required>
+    </div>
+    <div id="description">
+      <p>About Yourself:</p>
+      <textarea id="description" type="text" rows="5" ng-model="user.description" required></textarea>
+    </div>
+    <div class="login_buttons">
+      <button type="submit" name="submit">Start Checking</button>
+    </div>
+  </form>
+</div>

@@ -10,8 +10,8 @@ html,body {
 }
 
 #login_cont {
-  width: 360px;
-  height: 230px;
+  width: 600px;
+  height: 320px;
   background: rgba(30,30,80,0.6);
   margin-left: auto;
   margin-right: auto;
@@ -23,23 +23,21 @@ html,body {
   overflow: hidden;
 }
 
-#cont {
+.party_cont {
   width: 60%;
   height: auto;
-  overflow: hidden;
-  visibility: hidden;
   margin-left: auto;
   margin-right: auto;
   transition: all 2s;
-  background: rgba(30,30,30,0);
+  background: rgba(30,30,80,0.6);
   padding: 1em;
-  color: rgba(255,255,255,0);
+  color: rgba(255,255,255,1);
   border-radius: 10px;
+  overflow: hidden;
 }
 
-form {
-  background: rgba(60,60,60,0.7);
-  text-align: right;
+.cont p{
+  margin-bottom: 15px;
 }
 
 #login {
@@ -52,17 +50,17 @@ hr {
   transition: all 0.7s;
 }
 
-#email {
+#name {
   margin-top: 1em;
   text-shadow: 2px 2px 4px rgb(40,40,40);
 }
 
-#pw {
+#email {
   margin-top: 0em;
   text-shadow: 2px 2px 4px rgb(40,40,40);
 }
 
-input {
+input, textarea {
   background: transparent;
   border: 1px solid rgba(40,40,40,0.6);
   border-radius: 5px;
@@ -76,7 +74,11 @@ input {
   transition: all 0.3s;
 }
 
-input:focus {
+#description {
+  height: 80px;
+}
+
+input:focus, textarea:focus {
   border: 1px solid rgb(220,220,220);
   outline: none;
 }
@@ -88,19 +90,12 @@ p {
   float: left;
 }
 
-ul {
+.login_buttons {
   list-style: none;
-  margin-left: 21%;
+  margin-left: 40%;
   margin-right: auto;
+  margin-top: 20px;
   float: left;
-}
-
-li {
-  display: inline-block;
-}
-
-.login_buttons{
-  
 }
 
 button {
@@ -116,6 +111,7 @@ button {
 }
 
 button:hover {
+  cursor: pointer;
   border: 1px solid rgb(220,220,220);
 }
 
