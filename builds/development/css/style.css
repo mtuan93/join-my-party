@@ -11,6 +11,12 @@ html,body {
 
 .toolbar {
   width: 100%;
+  display: inline-block;
+}
+
+.toolbar h2 {
+  clear: both;
+  text-align: center;
 }
 
 #welcome {
@@ -52,7 +58,27 @@ html,body {
   overflow: hidden;
 }
 
-.cont p{
+.cont {
+  width: 100%;
+  display: inline-block;
+}
+
+.place {
+  float: left;
+}
+
+.time {
+  float: right;
+}
+
+.description {
+  clear: both;
+  margin-bottom: 15px;
+}
+
+.checkin {
+  clear: both;
+  text-align: center;
   margin-bottom: 15px;
 }
 
@@ -62,7 +88,7 @@ html,body {
 }
 
 hr {
-  border: 1px solid rgba(50,50,100,0.6);
+  border: 3px solid rgba(50,50,100,0.6);
   transition: all 0.7s;
 }
 

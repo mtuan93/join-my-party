@@ -43,7 +43,7 @@ myApp.config(['$routeProvider',
             }
         }).
         otherwise({
-            redirectTo: '/checkin'
+            redirectTo: '/post'
         });
     }
 ]);

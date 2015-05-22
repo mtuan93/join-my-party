@@ -1,5 +1,5 @@
 myApp.controller('CheckinController',
-    function($scope, $firebaseAuth, $location, $rootScope, FIREBASE_URL, Authentication) {
+    function($scope, $firebaseAuth, $location, $rootScope, $timeout, FIREBASE_URL, Authentication) {
 
         // Required - set to true on submission
         $scope.isSubmitting = null;
@@ -9,6 +9,7 @@ myApp.controller('CheckinController',
 
         // Optional
         $scope.options = {
+            buttonSubmittingIcon: 'fa fa-spinner',
             buttonDefaultText: 'Start Checking',
             buttonSuccessText: 'Verified',
             animationCompleteTime: '2000',
@@ -22,11 +23,12 @@ myApp.controller('CheckinController',
                     Authentication.login($scope.user)
                         .then(function() {
                             $scope.isSubmitting = true;
-                            $scope.result = 'success';
+                            return $timeout(function(){
+                            	$scope.result = 'success';
+                            }, 2000);
+                        }).then(function() {
+                        	$location.path('/post'); 
                         });
-                    if($scope.isSubmitting) {
-                        $location.path('/post'); 
-                    }
                 })
                 .catch(function(error) {
                     $scope.result = 'error';
