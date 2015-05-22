@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 html,body {
   background: url(https://farm3.staticflickr.com/2364/2243611451_d56b7fb3c2_b.jpg) fixed;
@@ -46,7 +46,7 @@ html,body {
 }
 
 .party_cont {
-  width: 60%;
+  width: 750px;
   height: auto;
   margin-left: auto;
   margin-right: auto;
@@ -80,6 +80,10 @@ html,body {
   clear: both;
   text-align: center;
   margin-bottom: 15px;
+}
+
+i {
+  cursor: pointer;
 }
 
 #login {
@@ -118,6 +122,7 @@ input, textarea {
 
 #description {
   height: 80px;
+  text-shadow: 2px 2px 4px rgb(40,40,40);
 }
 
 input:focus, textarea:focus {
@@ -132,12 +137,16 @@ p {
   float: left;
 }
 
-.login_buttons {
+.login_buttons, #submit_checkin {
   list-style: none;
-  margin-left: 40%;
+  margin-left: 43%;
   margin-right: auto;
   margin-top: 20px;
   float: left;
+}
+
+#submit_checkin:hover {
+  cursor: crosshair;
 }
 
 button {

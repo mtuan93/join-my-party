@@ -42,6 +42,15 @@ myApp.config(['$routeProvider',
                 }
             }
         }).
+        when('/checkinList', {
+            templateUrl: 'views/checkinList.html',
+            controller: 'CheckinController',
+            resolve: {
+                currentAuth: function(Authentication) {
+                    return Authentication.requireAuth();
+                }
+            }
+        }).
         otherwise({
             redirectTo: '/post'
         });
