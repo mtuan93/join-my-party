@@ -5,29 +5,31 @@
 		<h2>Checkin</h2>
 	</div>
 	<hr id="hr">
-	<div class="message" ng-hide="currentUser.message">
-		<form name="submitForm" ng-submit="submitCheckin()">
+	<div class="message">
+		<form name="submitForm" ng-submit="submitCheckin()" ng-hide="currentUser.message">
 			<p>Checkin with a message</p>
 			<input type="text" name="message" ng-model="message" required>
 			<jp-ng-bs-animated-button is-submitting="isSubmitting" result="result" options="options" type="submit" name="submit" id="submit_checkin"></jp-ng-bs-animated-button>
 		</form>
+		<h3 ng-show="currentUser.message"style="text-align:center">You already checked in <i class="fa fa-check fa-3x"></i></h3>
 	</div>
-	<h3 ng-show="currentUser.message"style="text-align:center">You already checked in <i class="fa fa-check fa-3x"></i></h3>
-	<hr id="hr">
+</div>
+<div class="party_cont">
 	<div class="cont">
 		<h2 id="login">People who checked-in</h2>
 	</div>
+	<hr id="hr">
 	<ul class="userlist">
-		<li ng-repeat="person in allUsers | orderBy: order">
+		<li ng-repeat="person in allUsers | orderBy: order" ng-if="person.message">
 
-			<div ng-if="person.message" class="message_cont">
+			<div class="message_cont">
 
 				<div class="info">
 					{{ person.name }}
 				</div><!-- info -->
 
 				<div class="date">
-					Checkin on {{ person.checkinTime | date: "MMM d, yy h:mm a" }}
+					Checkin on {{ person.checkinTime | date: "MMM d, yyyy 'at' h:mm a" }}
 				</div>
 				
 				<div class="message">
@@ -38,7 +40,7 @@
 					<form name="newMesForm" ng-submit="change_message()">
 						<p>Change your message: </p>
 						<input type="text" name="newMes" ng-model="user.newMessage" required>
-						<jp-ng-bs-animated-button is-submitting="isSubmitting" result="result" options="options_new" type="submit" name="submit" id="changeMessage"></jp-ng-bs-animated-button>
+						<button><i class="fa fa-check"></i></button>
 					</form>
 				</div> <!-- buttons -->
 			</div><!-- message -->
