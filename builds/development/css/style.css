@@ -65,13 +65,27 @@ html,body {
   padding: 1em;
 }
 
+.userlist form {
+  display: inline-block;
+  width: 100%;
+}
+
 .userlist form input {
   margin-top: 0;
+  margin-left: 10px;
+  margin-right: 5px;
+  width: 66%;
+  float: left;
 }
 
 .userlist form p {
   padding-left: 0;
   margin-top: 0;
+}
+
+.userlist form button {
+  height: 24px;
+  float: left;
 }
 
 .message_cont {
