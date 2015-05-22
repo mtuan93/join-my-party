@@ -1,6 +1,9 @@
 myApp.controller('CheckinController',
     function($scope, $firebase, $firebaseAuth, $location, $rootScope, $timeout, FIREBASE_URL, Authentication) {
 
+        var ref = new Firebase(FIREBASE_URL + '/users/');
+        $scope.allUsers = $firebase(ref).$asArray();
+
         // Required - set to true on submission
         $scope.isSubmitting = null;
 
@@ -20,8 +23,8 @@ myApp.controller('CheckinController',
         if ($location.$$path === '/checkin') {
             $scope.options.buttonDefaultText = 'Start Checking';
         } else if ($location.$$path === '/checkinList') {
-            $scope.options.buttonDefaultText = 'Add Comment';
-        }
+            $scope.options.buttonDefaultText = 'Checkin!';
+        } 
 
         $scope.go = function(path) {
             $location.path(path);
@@ -41,10 +44,6 @@ myApp.controller('CheckinController',
                                 $location.path('/post');
                             }, 2000);
                         });
-                })
-                .catch(function(error) {
-                    $scope.result = 'error';
-                    $scope.message = error.message;
                 });
         }; //register
 
@@ -61,7 +60,8 @@ myApp.controller('CheckinController',
             var userInfo = $firebase(ref);
             var userObj = userInfo.$asObject();
             userInfo.$update({
-                message: $scope.message
+                message: $scope.message,
+                checkinTime: Firebase.ServerValue.TIMESTAMP
             })
             .then(function() {
                 $scope.isSubmitting = true;
@@ -74,5 +74,22 @@ myApp.controller('CheckinController',
                     $scope.message = '';
                 }, 500);
             });
-        }
+        }; // submit Checkin
+
+        $scope.isUserMessage = function (person) {
+            return person.$id === $rootScope.currentUser.$id;
+        };
+
+        $scope.user = {};
+
+        $scope.change_message = function () {
+            $scope.options.buttonSuccessText = 'Submitting';
+            $scope.options.animationCompleteTime = '500';
+            var ref = new Firebase(FIREBASE_URL + '/users/' + $rootScope.currentUser.$id);
+            var userInfo = $firebase(ref);
+            var userObj = userInfo.$asObject();
+            $scope.result = 'success';
+            console.log($scope.user.newMessage);
+            $scope.user.message = $scope.user.newMessage;
+        };
     });

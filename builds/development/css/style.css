@@ -58,6 +58,36 @@ html,body {
   overflow: hidden;
 }
 
+.userlist {
+  padding: 0px;
+  padding: 1em;
+}
+
+.userlist form input {
+  margin-top: 0;
+}
+
+.userlist form p {
+  padding-left: 0;
+  margin-top: 0;
+}
+
+.message_cont {
+  height: auto;
+  color: rgba(255,255,255,1);
+  padding: 1em;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.message_cont div {
+  padding: 5px;
+}
+
+.message_cont button {
+
+}
+
 .cont {
   width: 100%;
   display: inline-block;
@@ -82,7 +112,7 @@ html,body {
   margin-bottom: 15px;
 }
 
-i {
+.checkin i {
   cursor: pointer;
 }
 
@@ -93,6 +123,11 @@ i {
 
 hr {
   border: 3px solid rgba(50,50,100,0.6);
+  transition: all 0.7s;
+}
+
+.userSep {
+  border: 1px dashed rgb(133, 255, 92);
   transition: all 0.7s;
 }
 
@@ -108,7 +143,7 @@ hr {
 
 input, textarea {
   background: transparent;
-  border: 1px solid rgba(40,40,40,0.6);
+  border: 1px solid rgb(133, 255, 92);
   border-radius: 5px;
   width: 65%;
   height: 20px;
