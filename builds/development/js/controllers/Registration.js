@@ -10,7 +10,7 @@ myApp.controller('RegistrationController',
             buttonSubmittingIcon: 'fa fa-spinner',
             // buttonSubmittingText: 'Logging in',
             // buttonSuccessText: 'Logging in',
-            animationCompleteTime: '5000',
+            animationCompleteTime: '2000',
             iconPosition: 'left'
             // buttonErrorText: 'Not Verified'
         };
@@ -24,10 +24,11 @@ myApp.controller('RegistrationController',
         $scope.register = function() {
             $scope.options.buttonSubmittingText = "Registering";
             $scope.options.buttonSuccessText = "Registered";
+            $scope.options.animationCompleteTime = '2000';
+            angular.element(document.querySelector('.form-signin')).removeClass('has-error');
             $scope.isSubmitting = true;
             Authentication.register($scope.user)
             .then(function() {
-                console.log($rootScope.currentUser);
                 $scope.login();
             });
         }; //register
@@ -44,6 +45,8 @@ myApp.controller('RegistrationController',
             $scope.isSubmitting = true;
             Authentication.login($scope.user)
             .then(function () {
+                $scope.options.animationCompleteTime = '2000';
+                angular.element(document.querySelector('.form-signin')).removeClass('has-error');
                 $scope.result = 'success';
             })
             .then(function() {
@@ -52,6 +55,8 @@ myApp.controller('RegistrationController',
                 }, 1500);
             })
             .catch(function(err) {
+                $scope.options.animationCompleteTime = '500';
+                angular.element(document.querySelector('.form-signin')).addClass('has-error');
                 $scope.result = 'error';
             })
         };

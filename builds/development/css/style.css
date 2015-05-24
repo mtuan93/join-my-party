@@ -4,8 +4,8 @@ body {
   padding-top: 70px;
 }
 
-nav {
-  height: 50px;
+nav > .container > .navbar-header > .navbar-brand{
+  margin-bottom: 0px;
 }
 
 .active a{
