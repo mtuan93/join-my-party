@@ -1,6 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute',
-        'firebase', 'appControllers', 'jp.ng-bs-animated-button'
-    ])
+var myApp = angular.module('myApp', ['ngRoute', 'firebase', 'appControllers', 'jp.ng-bs-animated-button'])
     .constant('FIREBASE_URL', 'https://join-my-party.firebaseio.com/');
 
 var appControllers = angular.module('appControllers', ['firebase']);
@@ -10,17 +8,26 @@ myApp.run(['$rootScope', '$location',
         $rootScope.$on('$routeChangeError',
             function(event, next, previous, error) {
                 if (error === 'AUTH_REQUIRED') {
-                    $location.path('/checkin');
+                    $location.path('/login');
+                    $rootScope.path = '/login';
                 }
             });
 
         $rootScope.$on("$routeChangeStart", function(event, next, current) {
-            if ($rootScope.currentUser) {
-                if (next.templateUrl === 'views/checkin.html') {
-                    $location.path("/post"); // redirect to posting.html if logged in
+            if ($rootScope.currentUser) { // if user already logged in
+                $rootScope.path = '/parties';
+                if(next.templateUrl === 'views/login.html' || 
+                next.templateUrl === 'views/register.html') { // redirect to posting.html if logged in
+                    $location.path('/parties');
                 }
-            } else {
-                $location.path("/checkin"); //if not logged in, always point to checkin.html
+            } else { // if user is not logged in
+                if (next.templateUrl === 'views/register.html') {
+                    $location.path("/register");
+                    $rootScope.path = '/register';
+                } else {
+                    $location.path("/login");
+                    $rootScope.path = '/login';
+                }
             }
         });
     }
@@ -29,12 +36,16 @@ myApp.run(['$rootScope', '$location',
 myApp.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
-        when('/checkin', {
-            templateUrl: 'views/checkin.html',
-            controller: 'CheckinController'
+        when('/login', {
+            templateUrl: 'views/login.html',
+            controller: 'RegistrationController'
         }).
-        when('/post', {
-            templateUrl: 'views/posting.html',
+        when('/register', {
+            templateUrl: 'views/register.html',
+            controller: 'RegistrationController'
+        }).
+        when('/parties', {
+            templateUrl: 'views/parties.html',
             controller: 'CheckinController',
             resolve: {
                 currentAuth: function(Authentication) {
@@ -52,7 +63,7 @@ myApp.config(['$routeProvider',
             }
         }).
         otherwise({
-            redirectTo: '/post'
+            redirectTo: '/login'
         });
     }
 ]);

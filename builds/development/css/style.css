@@ -1,222 +1,141 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
-
-html,body {
-  background: url(https://farm3.staticflickr.com/2364/2243611451_d56b7fb3c2_b.jpg) fixed;
-  background-size: cover;
-  font-family: "open sans";
-  color: white;
-  font-smooth: always;
-  -webkit-font-smoothing: antialiased;
+/* Space out content a bit */
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
-.toolbar, .message {
-  width: 100%;
-  display: inline-block;
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.footer {
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
-.toolbar h2 {
-  clear: both;
+/* Custom page header */
+.header {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+/* Customize container */
+@media (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .footer {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+
+
+/* jumbotron styles */
+.jumbotron {
   text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+.jumbotron .btn {
+  padding: 14px 24px;
+  font-size: 21px;
 }
 
-#welcome {
-  float:left;
+/* form styles */
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
 }
-
-#logout {
-  float: right;
-}
-
-#logout:hover{
-  cursor: pointer;
-}
-
-#login_cont {
-  width: 600px;
-  height: 320px;
-  background: rgba(30,30,80,0.6);
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 50px;
-  border: 1px solid rgba(50,50,100,0.6);
-  border-radius: 0;
-  box-shadow: 365px 0 5px rgba(20,20,70,0.4) hidden;
-  transition: all 0.7s;
-  overflow: hidden;
-}
-
-.party_cont {
-  width: 750px;
-  height: auto;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top:10px;
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
   margin-bottom: 10px;
-  transition: all 2s;
-  background: rgba(30,30,80,0.6);
-  padding: 1em;
-  color: rgba(255,255,255,1);
-  border-radius: 10px;
-  overflow: hidden;
 }
-
-.userlist {
-  padding: 0px;
-  padding: 1em;
+.form-signin .checkbox {
+  font-weight: normal;
 }
-
-.userlist form {
-  display: inline-block;
-  width: 100%;
-}
-
-.userlist form input {
-  margin-top: 0;
-  margin-left: 10px;
-  margin-right: 5px;
-  width: 66%;
-  float: left;
-}
-
-.userlist form p {
-  padding-left: 0;
-  margin-top: 0;
-}
-
-.userlist form button {
-  height: 24px;
-  float: left;
-}
-
-.message_cont {
+.form-signin .form-control {
+  position: relative;
   height: auto;
-  color: rgba(255,255,255,1);
-  padding: 1em;
-  border-radius: 10px;
-  overflow: hidden;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: -1px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
-.message_cont div {
-  padding: 5px;
+.form-signin input[type="name"] {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
-.message_cont button {
-
+.end-form-input {
+  margin-bottom: 10px !important;
 }
 
-.cont {
-  width: 100%;
+.welcome {
   display: inline-block;
 }
 
-.place {
-  float: left;
+#logoutBtn {
+  margin: 10px;
+  display: inline-block;
 }
 
-.time {
-  float: right;
-}
-
-.description {
-  clear: both;
-  margin-bottom: 15px;
-}
-
-.checkin {
-  clear: both;
-  text-align: center;
-  margin-bottom: 15px;
-}
-
-.checkin i {
+#logoutBtn:hover {
   cursor: pointer;
+  color: #337ab7;
 }
 
-#login {
-  text-align: center;
-  text-shadow: 2px 2px 4px rgb(40,40,40);
+/* effects for footer */
+footer a {
+  color: #777;
 }
 
-hr {
-  border: 3px solid rgba(50,50,100,0.6);
-  transition: all 0.7s;
-}
-
-.userSep {
-  border: 1px dashed rgb(133, 255, 92);
-  transition: all 0.7s;
-}
-
-#name {
-  margin-top: 1em;
-  text-shadow: 2px 2px 4px rgb(40,40,40);
-}
-
-#email {
-  margin-top: 0em;
-  text-shadow: 2px 2px 4px rgb(40,40,40);
-}
-
-input, textarea {
-  background: transparent;
-  border: 1px solid rgb(133, 255, 92);
-  border-radius: 5px;
-  width: 65%;
-  height: 20px;
-  margin-right: 5%;
-  margin-top: 10px;
-  float: right;
-  color: rgb(200,200,200);
-  padding-left: 0.4em;
-  transition: all 0.3s;
-}
-
-#description {
-  height: 80px;
-  text-shadow: 2px 2px 4px rgb(40,40,40);
-}
-
-input:focus, textarea:focus {
-  border: 1px solid rgb(220,220,220);
-  outline: none;
-}
-
-p {
-  margin: 0;
-  margin-top: 10px;
-  padding-left: 0.7em;
-  float: left;
-}
-
-.login_buttons, #submit_checkin {
-  list-style: none;
-  margin-left: 43%;
-  margin-right: auto;
-  margin-top: 20px;
-  float: left;
-}
-
-#submit_checkin:hover {
-  cursor: crosshair;
-}
-
-button {
-  padding: 8px;
-  background: rgba(50,50,50,0.6);
-  float: left;
-  margin-left: 3px;
-  border: 1px solid rgba(50,50,50,0.6);
-  border-radius: 5px;
-  color: rgb(210,210,210);
+footer a:hover {
+  color: #337ab7;
+  font-weight: 700;
   text-decoration: none;
-  transition: all 0.3s;
-}
-
-button:hover {
-  cursor: pointer;
-  border: 1px solid rgb(220,220,220);
-}
-
-button:focus {
-  outline: none;
 }

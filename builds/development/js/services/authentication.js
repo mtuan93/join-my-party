@@ -18,9 +18,8 @@ myApp.factory('Authentication', function($firebase,
 
         login: function(user) {
             return auth.$authWithPassword({
-                name: user.name,
                 email: user.email,
-                password: 'default password'
+                password: user.password
             }); //authWithPassword
         }, //login
 
@@ -31,7 +30,7 @@ myApp.factory('Authentication', function($firebase,
         register: function(user) {
             return auth.$createUser({
               email: user.email,
-              password: 'default password'
+              password: user.password
             }).then(function (regUser) {
                 var ref = new Firebase(FIREBASE_URL + '/users/');
                 var firebaseUsers = $firebase(ref);
@@ -40,7 +39,7 @@ myApp.factory('Authentication', function($firebase,
                     regUser: regUser.uid,
                     name: user.name,
                     email: user.email,
-                    description: user.description
+                    password: user.password
                 }; //user info
                 firebaseUsers.$set(regUser.uid, userInfo);
             }, function (err) {
