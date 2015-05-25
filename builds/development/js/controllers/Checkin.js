@@ -6,9 +6,12 @@ myApp.controller('CheckinController',
         $scope.result = null;
         $scope.options = {};
         $scope.options.buttonDefaultText = "Check in this party";
+        $scope.options.buttonSubmittingIcon = 'fa fa-spinner';
         $scope.options1 = {};
         $scope.options1.buttonDefaultText = "Access this party's gallery";
+        $scope.options1.buttonSubmittingIcon = 'fa fa-spinner';
         $scope.options2 = {};
+        $scope.options2.buttonSubmittingIcon = 'fa fa-spinner';
         $scope.options2.buttonDefaultText = "Check in now!";
         $scope.options2.buttonSubmittingText = "Checking in";
         $scope.options2.buttonSuccessText = "Checked in";

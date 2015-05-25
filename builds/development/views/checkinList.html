@@ -10,22 +10,16 @@
 	<h3 ng-show="currentUser.message" class="party-meta">You already checked in <i class="fa fa-check fa-3x"></i></h3>
 </div>
 <div class="row row-offcanvas row-offcanvas-right">
-<div class="col-xs-12 col-sm-9">
-	<h1>People who checked in</h1>
-	<div class="row">
-		<div class="col-xs-6 col-lg-4" ng-repeat="person in allUsers | orderBy: order" ng-if="person.message">
-          <h2>{{person.name}}</h2>
-          <p class="party-meta">{{ person.checkinTime | date: "MMM d, yyyy 'at' h:mm a" }}</p>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div><!--/.col-xs-6.col-lg-4-->
+	<div class="col-xs-12 col-sm-9">
+		<h1>People who checked in</h1>
+		<div class="row">
+			<div class="col-xs-6 col-lg-4" ng-repeat="person in allUsers | orderBy: order" ng-if="person.message">
+				<h2>{{person.name}}</h2>
+				<p class="party-meta">{{ person.checkinTime | date: "MMM d, yyyy 'at' h:mm a" }}</p>
+				<p>{{person.message}}</p>
+				<p ng-show='isUserMessage(person)'><a class="btn btn-default btn-success" ng-click='change_message(person)' role="button">Change message &raquo;</a>
+			</p>
+			</div><!--/.col-xs-6.col-lg-4-->
+		</div>
 	</div>
-	<!-- <div ng-show="isUserMessage(person)">
-					<form name="newMesForm" ng-submit="change_message()">
-						<p>Change your message: </p>
-						<input type="text" name="newMes" ng-model="user.newMessage" required>
-						<button><i class="fa fa-check"></i></button>
-					</form>
-				</div> <!-- buttons -->
-</div>
 </div>
