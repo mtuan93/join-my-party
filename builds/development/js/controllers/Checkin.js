@@ -17,7 +17,7 @@ myApp.controller('CheckinController',
         $scope.options2.buttonSuccessText = "Checked in";
         var ref = new Firebase(FIREBASE_URL + '/users/');
         $scope.allUsers = $firebase(ref).$asArray();
-
+        $scope.user = {};
         $scope.go = function(path) {
             $scope.options.buttonSubmittingText = 'Accessing checkins';
             $scope.options.buttonSuccessText = 'Access verified';
@@ -57,27 +57,24 @@ myApp.controller('CheckinController',
                 .then(function() {
                     $timeout(function() {
                         userInfo.$update({
-                            message: $scope.message,
+                            message: $scope.user.message,
                             checkinTime: Firebase.ServerValue.TIMESTAMP
-                        })
+                        });
+                        $scope.user.message = '';
                     }, 1000);
                 });
         }; // submit Checkin
 
         $scope.isUserMessage = function(person) {
             return person.$id === $rootScope.currentUser.$id;
-        };
+        }; // isUserMessage
 
-        $scope.user = {};
-
-        $scope.change_message = function() {
-            $scope.options.buttonSuccessText = 'Submitting';
-            $scope.options.animationCompleteTime = '500';
-            var ref = new Firebase(FIREBASE_URL + '/users/' + $rootScope.currentUser.$id);
-            var userInfo = $firebase(ref);
-            var userObj = userInfo.$asObject();
-            $scope.result = 'success';
-            console.log($scope.user.newMessage);
-            $scope.user.message = $scope.user.newMessage;
-        };
+        $scope.changeMessage = function() {
+            $rootScope.currentUser.message = '';
+            // var ref = new Firebase(FIREBASE_URL + '/users/' + $rootScope.currentUser.$id);
+            // var userInfo = $firebase(ref);
+            // var userObj = userInfo.$asObject();
+            // $scope.result = 'success';
+            // $scope.user.message = $scope.user.newMessage;
+        }; //changeMessage
     });
