@@ -62,6 +62,14 @@ myApp.config(['$routeProvider',
                 }
             }
         }).
+        when('/gallery1', {
+            templateUrl: 'views/gallery1.html',
+            resolve: {
+                currentAuth: function(Authentication) {
+                    return Authentication.requireAuth();
+                }
+            }
+        }).
         otherwise({
             redirectTo: '/login'
         });
