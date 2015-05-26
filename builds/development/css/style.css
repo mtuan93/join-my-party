@@ -153,6 +153,6 @@ nav > .container > .navbar-header > .navbar-brand{
   text-decoration: none;
 }
 
-#submitCheckinBtn {
+#submitCheckinBtn, #changeCheckinBtn {
   margin-top: 15px;
 }

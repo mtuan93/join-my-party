@@ -15,6 +15,11 @@ myApp.controller('CheckinController',
         $scope.options2.buttonDefaultText = "Check in now!";
         $scope.options2.buttonSubmittingText = "Checking in";
         $scope.options2.buttonSuccessText = "Checked in";
+        $scope.options3 = {};
+        $scope.options3.buttonSubmittingIcon = 'fa fa-spinner';
+        $scope.options3.buttonDefaultText = 'Post new message';
+        $scope.options3.buttonSubmittingText = 'Updating';
+        $scope.options3.buttonSuccessText = 'Message changed';
         var ref = new Firebase(FIREBASE_URL + '/users/');
         $scope.allUsers = $firebase(ref).$asArray();
         $scope.user = {};
@@ -47,10 +52,12 @@ myApp.controller('CheckinController',
         }; //go1
 
         $scope.submitCheckin = function() {
-            $scope.user.changeMessage = false;
             var ref = new Firebase(FIREBASE_URL + '/users/' + $rootScope.currentUser.$id);
             var userInfo = $firebase(ref);
             var userObj = userInfo.$asObject();
+            if($scope.user.changeMessage) {
+                
+            }
             $scope.isSubmitting = true;
             $timeout(function() {
                 $scope.result = 'success';
@@ -62,6 +69,7 @@ myApp.controller('CheckinController',
                             checkinTime: Firebase.ServerValue.TIMESTAMP
                         });
                         $scope.user.message = '';
+                        $scope.user.changeMessage = false;
                     }, 1000);
                 });
         }; // submit Checkin
@@ -72,10 +80,5 @@ myApp.controller('CheckinController',
 
         $scope.changeMessage = function() {
             $scope.user.changeMessage = true;
-            // var ref = new Firebase(FIREBASE_URL + '/users/' + $rootScope.currentUser.$id);
-            // var userInfo = $firebase(ref);
-            // var userObj = userInfo.$asObject();
-            // $scope.result = 'success';
-            // $scope.user.message = $scope.user.newMessage;
         }; //changeMessage
     });
