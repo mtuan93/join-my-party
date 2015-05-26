@@ -8,7 +8,7 @@ myApp.controller('CheckinController',
         $scope.options.buttonDefaultText = "Check in this party";
         $scope.options.buttonSubmittingIcon = 'fa fa-spinner';
         $scope.options1 = {};
-        $scope.options1.buttonDefaultText = "Access this party's gallery";
+        $scope.options1.buttonDefaultText = "Party's gallery";
         $scope.options1.buttonSubmittingIcon = 'fa fa-spinner';
         $scope.options2 = {};
         $scope.options2.buttonSubmittingIcon = 'fa fa-spinner';
@@ -47,6 +47,7 @@ myApp.controller('CheckinController',
         }; //go1
 
         $scope.submitCheckin = function() {
+            $scope.user.changeMessage = false;
             var ref = new Firebase(FIREBASE_URL + '/users/' + $rootScope.currentUser.$id);
             var userInfo = $firebase(ref);
             var userObj = userInfo.$asObject();
@@ -70,7 +71,7 @@ myApp.controller('CheckinController',
         }; // isUserMessage
 
         $scope.changeMessage = function() {
-            $rootScope.currentUser.message = '';
+            $scope.user.changeMessage = true;
             // var ref = new Firebase(FIREBASE_URL + '/users/' + $rootScope.currentUser.$id);
             // var userInfo = $firebase(ref);
             // var userObj = userInfo.$asObject();

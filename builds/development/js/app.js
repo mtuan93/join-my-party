@@ -71,7 +71,7 @@ myApp.config(['$routeProvider',
             }
         }).
         otherwise({
-            redirectTo: '/login'
+            redirectTo: '/parties'
         });
     }
 ]);

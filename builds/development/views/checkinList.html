@@ -17,8 +17,14 @@
 				<h2>{{person.name}}</h2>
 				<p class="party-meta">{{ person.checkinTime | date: "MMM d, yyyy 'at' h:mm a" }}</p>
 				<p>{{person.message}}</p>
-				<p ng-show='isUserMessage(person)'><a class="btn btn-default btn-success" ng-click='changeMessage()' role="button">Change message &raquo;</a>
-			</p>
+				<div ng-show='isUserMessage(person)'>
+					<p><a class="btn btn-default btn-success" ng-click='changeMessage()' role="button" ng-hide='user.changeMessage'>Change message &raquo;</a>
+						<form ng-show='user.changeMessage' name="submitForm" ng-submit='submitCheckin()' ng-hide="currentUser.message">
+							<input type="text" name="message" ng-model="user.message" class="form-control" id='' placeholder="Your message" required show-focus='user.changeMessage'>
+							<jp-ng-bs-animated-button is-submitting="isSubmitting3" result="result3" options="options3" type="submit"class="btn-success"></jp-ng-bs-animated-button>
+						</form>
+					</p>
+				</div>
 			</div><!--/.col-xs-6.col-lg-4-->
 		</div>
 	</div>
