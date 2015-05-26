@@ -11,12 +11,12 @@
 </div>
 <div class="row row-offcanvas row-offcanvas-right">
 	<div class="col-xs-12 col-sm-9">
-		<h1>People who checked in</h1>
+		<h1 class="onBackground">People who checked in</h1>
 		<div class="row">
 			<div class="col-xs-6 col-lg-4" ng-repeat="person in allUsers | orderBy: order" ng-if="person.message">
-				<h2>{{person.name}}</h2>
+				<h2 class="onBackground">{{person.name}}</h2>
 				<p class="party-meta">{{ person.checkinTime | date: "MMM d, yyyy 'at' h:mm a" }}</p>
-				<p>{{person.message}}</p>
+				<p class="onBackground">{{person.message}}</p>
 				<div ng-show='isUserMessage(person)'>
 					<p><a class="btn btn-default btn-success" ng-click='changeMessage()' role="button" ng-hide='user.changeMessage'>Change message &raquo;</a>
 						<form ng-show='user.changeMessage' name="submitForm" ng-submit='submitCheckin()' ng-hide="currentUser.message">

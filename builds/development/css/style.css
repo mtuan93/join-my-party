@@ -4,6 +4,10 @@ body {
   font-family: Amaranth;
 }
 
+.onBackground {
+  color: white !important;
+}
+
 p {
   text-align: justify;
 }
@@ -143,13 +147,18 @@ nav > .container > .navbar-header > .navbar-brand{
 
 /* effects for footer */
 .actionBtn {
+  color: white;
+}
+
+.logoutBtn {
   color: #777;
 }
 
-.actionBtn:hover {
+.actionBtn:hover, .logoutBtn:hover {
   color: #337ab7;
   cursor: pointer;
-  font-weight: 700;
+  font-weight: 800;
+  font-size: 20px;
   text-decoration: none;
 }
 
