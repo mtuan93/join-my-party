@@ -83,8 +83,9 @@ nav > .container > .navbar-header > .navbar-brand{
 .jumbotron {
   text-align: center;
   border-bottom: 1px solid #e5e5e5;
+  background-color: rgba(255, 255, 255, 0.5);
 }
-.jumbotron .btn {
+.jumbotron > .btn{
   padding: 14px 24px;
   font-size: 21px;
 }
@@ -146,8 +147,8 @@ nav > .container > .navbar-header > .navbar-brand{
 
 /* style subheader of party */
 .party-meta {
-  margin-bottom: 20px;
-  color: #999;
+  margin-bottom: 10px;
+  color: #42C02E;
 }
 
 /* effects for footer */

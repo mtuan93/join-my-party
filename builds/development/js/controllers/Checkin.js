@@ -19,7 +19,8 @@ myApp.controller('CheckinController',
         $scope.options3.buttonSubmittingIcon = 'fa fa-spinner';
         $scope.options3.buttonDefaultText = 'Post new message';
         $scope.options3.buttonSubmittingText = 'Updating';
-        $scope.options3.buttonSuccessText = 'Message changed';
+        $scope.options3.buttonSuccessText = 'Updated';
+        $scope.options3.buttonSuccessIcon = null;
         var ref = new Firebase(FIREBASE_URL + '/users/');
         $scope.allUsers = $firebase(ref).$asArray();
         $scope.user = {};
