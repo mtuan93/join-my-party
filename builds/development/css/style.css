@@ -183,3 +183,11 @@ nav > .container > .navbar-header > .navbar-brand{
   margin-left: 10px;
   margin-right: 10px;
 }
+
+.vote {
+  cursor:pointer;
+}
+
+.vote:hover {
+  text-decoration: none;
+}

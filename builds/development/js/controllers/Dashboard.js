@@ -29,4 +29,24 @@ myApp.controller('DashboardController',
                     }, 1000);
                 });
         }; // add a restaurant
+
+        $scope.voteUp = function (restaurant) {
+            var resRef = new Firebase(FIREBASE_URL + '/restaurant/' + restaurant.$id);
+            var listOfVoteUsers = restaurant.listVote;
+            var currentUserID = $scope.currentUser.name;
+            if(!listOfVoteUsers) {
+                listOfVoteUsers = [currentUserID];
+            } else if (listOfVoteUsers.indexOf(currentUserID) === -1) {
+                listOfVoteUsers.push(currentUserID);
+            }
+            $firebase(resRef).$update({
+                listVote: listOfVoteUsers 
+            });
+        }
+
+        $scope.notYetVote = function (restaurant) {
+            var listOfVoteUsers = restaurant.listVote;
+            if(listOfVoteUsers) return listOfVoteUsers.indexOf($scope.currentUser.name) === -1;
+            return true;
+        }
     });
