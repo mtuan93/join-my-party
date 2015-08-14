@@ -9,21 +9,27 @@
 	</form>
 	<h3 ng-show="currentUser.message" class="party-meta">You already checked in <i class="fa fa-check fa-3x"></i></h3>
 </div>
-<div class="row row-offcanvas row-offcanvas-right">
-	<h1 class="onBackground">People who checked in</h1>
-	<div class="row">
-		<div class="col-lg-4" ng-repeat="person in allUsers | orderBy: order" ng-if="person.message">
-			<h2 class="onBackground">{{person.name}}</h2>
-			<p class="party-meta">{{ person.checkinTime | date: "MMM d, yyyy 'at' h:mm a" }}</p>
-			<p class="onBackground">{{person.message}}</p>
-			<div ng-show='isUserMessage(person)'>
-				<p><a class="btn btn-default btn-success" ng-click='changeMessage()' role="button" ng-hide='user.changeMessage'>Change message &raquo;</a>
-					<form ng-show='user.changeMessage' name="submitForm" ng-submit='submitCheckin()' ng-hide="currentUser.message">
-						<input type="text" name="message" ng-model="user.message" class="form-control" id='' placeholder="New message" required show-focus='user.changeMessage'>
-						<jp-ng-bs-animated-button is-submitting="isSubmitting" result="result" options="options3" type="submit"class="btn-success" id="changeCheckinBtn"></jp-ng-bs-animated-button>
-					</form>
-				</p>
-			</div>
-		</div><!--/.col-xs-6.col-lg-4-->
-	</div>
+<div class="row marketing">
+	<!-- ng-repeat="person in allUsers | orderBy: order" -->
+    <div class="col-lg-6">
+      <h4>Subheading</h4>
+      <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+      <h4>Subheading</h4>
+      <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+      <h4>Subheading</h4>
+      <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+    </div>
+
+    <div class="col-lg-6">
+      <h4>Subheading</h4>
+      <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+      <h4>Subheading</h4>
+      <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+      <h4>Subheading</h4>
+      <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+    </div>
 </div>
