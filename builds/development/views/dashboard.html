@@ -21,13 +21,13 @@
 			<div class="row">
 				<div class="pull-left"><h3 class="panel-title text-primary">{{res.name}}</h3></div>
 				<div class="pull-right">
-					<i ng-click="voteUp(res)" ng-if="notYetVote(res)" class="vote fa fa-thumbs-up fa-2x"></i>
+					<i class="fa fa-thumbs-up fa-2x"></i>
 				</div>
 			</div>
 		</div>
 		<div class="panel-body">
-		  <a class="text-warning vote" href="{{res.url}}" target="_blank">{{res.url}}</a>
-		  <p class="text-success">{{res.listVote.length}} vote(s): {{res.listVote}} </p>
+		  <p class="text-warning">{{res.url}}</p>
+		  <p class="text-success">{{res.votes}}</p>
 		</div>
 	</div>
 </div>
