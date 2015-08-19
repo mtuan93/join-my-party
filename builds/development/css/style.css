@@ -4,6 +4,7 @@ html, body, .container {
 }
 
 body {
+  padding-top: 70px;
   font-family: Amaranth;
   max-width: 2000px;
 }
@@ -81,19 +82,12 @@ nav > .container > .navbar-header > .navbar-brand{
 /* jumbotron styles */
 .jumbotron {
   text-align: center;
-  padding: 14px 24px 10px 10px;
   border-bottom: 1px solid #e5e5e5;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 .jumbotron > .btn{
-  padding: 14px 24px 10px 10px;
+  padding: 14px 24px;
   font-size: 21px;
-}
-
-#list {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-  background-color: rgba(255, 255, 255, 0.7);
 }
 
 /* form styles */
@@ -176,10 +170,4 @@ nav > .container > .navbar-header > .navbar-brand{
 
 #submitCheckinBtn, #changeCheckinBtn {
   margin-top: 15px;
-}
-
-.panel-heading > .row {
-  margin-top: 5px;
-  margin-left: 10px;
-  margin-right: 10px;
 }

@@ -1,6 +1,6 @@
 {
-  "firebase": "vote-my-restaurant",
-  "public": "builds\\development",
+  "firebase": "join-my-party",
+  "public": "builds/development",
   "ignore": [
     "firebase.json",
     "**/.*",

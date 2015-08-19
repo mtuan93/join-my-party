@@ -1,10 +1,10 @@
 {
-  "name": "Vote-My-Restaurant",
+  "name": "Join-My-Party",
   "version": "0.0.1",
-  "description": "A Web Application for users to register, login and set up a voting discussion room for friends to vote for what restaurant to eat",
+  "description": "A Web Application for users to register, login and post their daily activities and allowed other users to comment",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mtuan93/vote-my-restaurant.git"
+    "url": "https://github.com/mtuan93/join-my-party.git"
   },
   "author": "Tuan Nguyen",
   "devDependencies": {
